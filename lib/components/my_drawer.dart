@@ -1,7 +1,14 @@
-import 'package:flutter/material.dart';
+// ignore_for_file: prefer_const_constructors_in_immutables
 
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:habit_tracker/theme/theme_provider.dart';
+import 'package:provider/provider.dart';
+
+//drawer doesnt require to be stateful
 class MyDrawer extends StatelessWidget {
-  const MyDrawer({super.key});
+   MyDrawer({
+    super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +28,13 @@ class MyDrawer extends StatelessWidget {
                 ),
             ),
           ),
-          ListTile()
+          ListTile(
+            trailing: CupertinoSwitch(
+              value: Provider.of<ThemeProvider>(context).isDarkMode, 
+              onChanged: (value) =>
+                Provider.of<ThemeProvider>(context, listen: false).toggleTheme(),
+              ),
+          )
           ],
           ),
     );
