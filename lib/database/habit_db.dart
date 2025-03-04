@@ -4,7 +4,6 @@ import 'package:habit_tracker/models/habit.dart';
 import 'package:isar/isar.dart';
 import 'package:path_provider/path_provider.dart';
 
-
 class HabitDb extends ChangeNotifier {
   static late Isar isar;
 
